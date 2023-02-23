@@ -39,6 +39,7 @@ function Orders() {
   const handleSubmit = () => {
     const productsIds = selectedProducts.map(({ id }) => ({ id }));
     const payload = {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ...orderLocation!,
       products: productsIds
     };

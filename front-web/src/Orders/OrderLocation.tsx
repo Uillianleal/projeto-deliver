@@ -30,6 +30,7 @@ function OrderLocation({ onChangeLocation }: Props) {
   const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) => {
     const response = await fetchLocalMapBox(inputValue);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const places = response.data.features.map((item: any) => {
       return {
         label: item.place_name,
@@ -50,6 +51,7 @@ function OrderLocation({ onChangeLocation }: Props) {
     onChangeLocation({
       latitude: place.position.lat,
       longitude: place.position.lng,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       address: place.label!
     });
   };
