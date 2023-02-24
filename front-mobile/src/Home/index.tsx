@@ -1,10 +1,19 @@
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import Header from "../Header";
 
-function Home() {
-  const handleOnPress = () => {};
+export default function Home() {
+  const navigation = useNavigation();
+
+  const handleOnPress = () => {
+    navigation.navigate("Orders");
+  };
+
   return (
     <>
+      <Header />
       <View style={styles.container}>
         <Image source={require("../assets/deliveryman.png")} />
         <Text style={styles.title}>
@@ -25,7 +34,7 @@ function Home() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: "5%",
+    marginTop: "15%",
     alignItems: "center",
   },
   title: {
@@ -44,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   footer: {
-    marginTop: "5%",
+    marginTop: "15%",
     alignItems: "center",
   },
   button: {
@@ -63,5 +72,3 @@ const styles = StyleSheet.create({
     letterSpacing: -0.24,
   },
 });
-
-export default Home;
